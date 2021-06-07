@@ -4,6 +4,12 @@ export const toCelsius = (source) => {
     return Math.trunc(source - 273.15);
 }
 
+export const toKilometersHour = (source) => {
+    if(!source)
+        return "Invalid data!"
+    return Math.trunc(source * (60*60)/1000);
+}
+
 export const getWeatherIcon = (weatherId) => {
     var result = "";
     switch(true) {

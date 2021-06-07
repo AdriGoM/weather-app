@@ -6,8 +6,9 @@ import { WiHumidity } from 'react-icons/wi';
 import { FaTemperatureHigh } from 'react-icons/fa';
 import { FaTemperatureLow } from 'react-icons/fa';
 import { BiError } from 'react-icons/bi';
+import { BsSearch } from 'react-icons/bs';
 import { connect } from 'react-redux'
-import {toCelsius, getWeatherIcon} from '../helpers/weatherHelper'
+import {toCelsius, getWeatherIcon, toKilometersHour} from '../helpers/weatherHelper'
 
 
 function WeatherResult({ weatherData, loading, error}) {
@@ -32,14 +33,15 @@ function WeatherResult({ weatherData, loading, error}) {
                     <h2><span className="temperature-icon"><FaTemperatureHigh /></span> {toCelsius(weatherData.main.temp_max)}º</h2>
                     <h2><FaTemperatureLow /> {toCelsius(weatherData.main.temp_min)}º</h2>
                     <h2><WiHumidity /> {weatherData.main.humidity}%</h2>
-                    <h2><WiStrongWind /> {weatherData.wind.speed} m/s</h2>
+                    <h2><WiStrongWind /> {toKilometersHour(weatherData.wind.speed)} km/h</h2>
                 </div>
             )
         );
     } else {
         return (
             <div className="WeatherResult">
-                <h2>Make a search to view the weather!</h2>
+                <h2><BsSearch /></h2>
+                <h2>Search for a weather update!</h2>
             </div>
         )
     }
