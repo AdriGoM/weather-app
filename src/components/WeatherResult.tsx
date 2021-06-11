@@ -27,7 +27,7 @@ function WeatherResult({ weatherData, loading, error}) {
             ) : weatherData && (
                 <div className="WeatherResult">
                     <h3><GrLocation /> {weatherData.name}, {weatherData.sys.country}</h3>
-                    <img src={getWeatherIcon(weatherData.weather[0].id)}></img>
+                    <img src={getWeatherIcon(weatherData.weather[0].id)} alt="weather-img"></img>
                     <h2>{weatherData.weather[0].description}, {toCelsius(weatherData.main.temp)}º</h2>
                     <br></br>
                     <h2><span className="temperature-icon"><FaTemperatureHigh /></span> {toCelsius(weatherData.main.temp_max)}º</h2>

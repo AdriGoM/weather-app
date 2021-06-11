@@ -1,12 +1,18 @@
 export const toCelsius = (source) => {
     if(!source)
-        return "Invalid data!"
+        return "No data to show!"
+    if (typeof source !== "number")
+        return "Invalid type of data!"    
+
     return Math.trunc(source - 273.15);
 }
 
 export const toKilometersHour = (source) => {
     if(!source)
-        return "Invalid data!"
+        return "No data to show!"
+    if (typeof source !== "number")
+        return "Invalid type of data!"    
+
     return Math.trunc(source * (60*60)/1000);
 }
 
@@ -37,6 +43,5 @@ export const getWeatherIcon = (weatherId) => {
         default:
             break;
     }
-    console.log(result)
     return result;
 }
