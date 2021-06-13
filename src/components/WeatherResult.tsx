@@ -1,4 +1,5 @@
-import '../styles/WeatherResult.css';
+// import '../styles/WeatherResult.css';
+import React from 'react';
 import { IoPartlySunnySharp } from 'react-icons/io5';
 import { GrLocation } from 'react-icons/gr';
 import { WiStrongWind } from 'react-icons/wi';
@@ -8,19 +9,18 @@ import { FaTemperatureLow } from 'react-icons/fa';
 import { BiError } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
 import { connect } from 'react-redux'
-import {toCelsius, getWeatherIcon, toKilometersHour} from '../helpers/weatherHelper'
+import { toCelsius, getWeatherIcon, toKilometersHour } from '../helpers/weatherHelper'
 
 
-function WeatherResult({ weatherData, loading, error}) {
-    console.log(weatherData)
-    if(weatherData) {
+function WeatherResult({ weatherData, loading, error }) {
+    if (weatherData) {
         return (
             loading ? (
-                <div className="WeatherResult">
+                <div className="WeatherResult" title="loadingMessage">
                     <h2>Loading</h2>
                 </div>
             ) : error ? (
-                <div className="WeatherResult">
+                <div className="WeatherResult" title="apiError">
                     <h1><BiError /></h1>
                     <h2>{error}</h2>
                 </div>
@@ -39,13 +39,13 @@ function WeatherResult({ weatherData, loading, error}) {
         );
     } else {
         return (
-            <div className="WeatherResult">
+            <div className="WeatherResult" title="emptyWeather">
                 <h2><BsSearch /></h2>
                 <h2>Search for a weather update!</h2>
             </div>
         )
     }
-  
+
 }
 
 const mapStateToProps = state => {
