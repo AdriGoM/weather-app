@@ -1,4 +1,3 @@
-// import '../styles/WeatherResult.css';
 import React from 'react';
 import { IoPartlySunnySharp } from 'react-icons/io5';
 import { GrLocation } from 'react-icons/gr';
@@ -16,16 +15,25 @@ function WeatherResult({ weatherData, loading, error }) {
     if (weatherData) {
         return (
             loading ? (
-                <div className="WeatherResult" title="loadingMessage">
+                <div title="loadingMessage" style={{
+                    width: '25%',
+                    position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50% , -50%)', textAlign: 'center', fontFamily: 'Inconsolata'
+                }}>
                     <h2>Loading</h2>
                 </div>
             ) : error ? (
-                <div className="WeatherResult" title="apiError">
+                <div title="apiError" style={{
+                    width: '25%',
+                    position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50% , -50%)', textAlign: 'center', fontFamily: 'Inconsolata'
+                }}>
                     <h1><BiError /></h1>
                     <h2>{error}</h2>
                 </div>
             ) : weatherData && (
-                <div className="WeatherResult">
+                <div style={{
+                    width: '25%',
+                    position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50% , -50%)', textAlign: 'center', fontFamily: 'Inconsolata'
+                }}>
                     <h3><GrLocation /> {weatherData.name}, {weatherData.sys.country}</h3>
                     <img src={getWeatherIcon(weatherData.weather[0].id)} alt="weather-img"></img>
                     <h2>{weatherData.weather[0].description}, {toCelsius(weatherData.main.temp)}º</h2>
@@ -39,7 +47,10 @@ function WeatherResult({ weatherData, loading, error }) {
         );
     } else {
         return (
-            <div className="WeatherResult" title="emptyWeather">
+            <div className="WeatherResult" title="emptyWeather" style={{
+                width: '25%',
+                position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50% , -50%)', textAlign: 'center', fontFamily: 'Inconsolata'
+            }}>
                 <h2><BsSearch /></h2>
                 <h2>Search for a weather update!</h2>
             </div>
