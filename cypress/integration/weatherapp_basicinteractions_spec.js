@@ -1,13 +1,14 @@
 /// <reference types="cypress" />
 context('Actions', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:3000/')
+      cy.visit('https://adrigom.github.io/weather-app/')
     })
 
 describe('Button shows correct information when clicked', () => {
-    it('Click on the button without location and get a 400 message status', () => {
-        cy.get('button.search-button').click();
-        cy.contains("h2", "Request failed with status code 400");     
+  it('Type Barcelona, shows main correct information', () => {
+    cy.get('input.search-input').type('Barcelona');
+    cy.get('button.search-button').click();
+    cy.contains("h2", "º");     
     })
-  })
+})
 })
