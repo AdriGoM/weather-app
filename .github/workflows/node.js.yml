@@ -32,6 +32,13 @@ jobs:
 
     - name: Run the tests
       run: npm test
+      
+    - name: Create env file 
+      run: |
+        touch .env
+        e cho REACT_APP_OPENWEATHER_API_KEY="e2a9f3d7993c0b9d5043b663318059c4" >> .env
+        echo SKIP_PREFLIGHT_CHECK="true" >> .env
+        cat .env
 
     - name: Build
       run: npm run build
