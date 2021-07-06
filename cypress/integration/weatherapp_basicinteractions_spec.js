@@ -9,6 +9,11 @@ describe('Button shows correct information when clicked', () => {
     cy.get('input.search-input').type('Barcelona');
     cy.get('button.search-button').click();
     cy.contains("h2", "º");     
-    })
+    }),
+  it('Type random place, shows 404 error', () => {
+      cy.get('input.search-input').type('dummyplace');
+      cy.get('button.search-button').click();
+      cy.contains("h2", "404");     
+      })
 })
 })
