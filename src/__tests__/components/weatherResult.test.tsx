@@ -4,7 +4,7 @@
 import React from 'react';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import WeatherResult from '../components/WeatherResult';
+import WeatherResult from '../../components/WeatherResult';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
