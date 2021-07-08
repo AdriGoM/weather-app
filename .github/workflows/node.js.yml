@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [14.x]
 
     steps:
     - name: Checkout repository
@@ -28,10 +28,20 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install --legacy-peer-deps
+      run: npm install
 
     - name: Run the tests
       run: npm test
+      
+    - name: Create env file 
+      run: |
+        touch .env
+        echo REACT_APP_OPENWEATHER_API_KEY="e2a9f3d7993c0b9d5043b663318059c4" >> .env
+        echo SKIP_PREFLIGHT_CHECK="true" >> .env
+        cat .env
 
     - name: Build
-      run: npm run build
+      run: CI='' npm run build
+      
+    - name: Deploy
+      run: CI='' npm run deploy
