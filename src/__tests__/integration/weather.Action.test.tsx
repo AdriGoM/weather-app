@@ -1,4 +1,4 @@
-/// <reference types="jest" />
+/* /// <reference types="jest" />
 import { fetchWeather } from '../../redux/Weather/weatherAction'
 
 
@@ -27,4 +27,4 @@ test('fetchWeather returns 401 when api key is wrong', () => {
     var expectedResponse = 401;
   
     expect(result).toBe(expectedResponse);
-  });
+  }); */
