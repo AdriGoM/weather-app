@@ -6,13 +6,11 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -22,7 +20,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
@@ -44,4 +42,7 @@ jobs:
       run: CI='' npm run build
       
     - name: Deploy
-      run: CI='' npm run deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: master # The branch the action should deploy to.
+        folder: build # The folder the action should deploy.
