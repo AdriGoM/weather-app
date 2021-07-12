@@ -21,7 +21,7 @@ class SearchBox extends React.Component<MyProps, {}> {
       return (
       <div className="container">
       <div className="search-box">
-          <input type="text" className="search-input" placeholder="Search for a location." id="search-input"/>
+          <input type="text" className="search-input" placeholder="Search for a location..." id="search-input"/>
           <button className="search-button" onClick={this.handleClick}>
               <SiReact/>
           </button>
