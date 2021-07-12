@@ -26,10 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install
-
-    - name: Run the tests
-      run: npm test
+      run: npm install  
       
     - name: Create env file 
       run: |
@@ -48,4 +45,4 @@ jobs:
         target_branch: gh-pages
         build_dir: build
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
