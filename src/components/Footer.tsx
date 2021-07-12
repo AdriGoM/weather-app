@@ -11,7 +11,7 @@ function Footer() {
             textAlign: 'center',
             fontFamily: 'Merriweather'
         }}>
-            <h4 title='message'> Powered by <span className="open-img" style={{
+            <h4 title='message'> Powered by: <span className="open-img" style={{
             top: '98%',
             fontFamily: 'Merriweather',
             marginLeft: '10px'
