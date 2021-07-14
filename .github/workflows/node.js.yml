@@ -19,8 +19,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Cypress run
-      uses: cypress-io/github-action@v2
       
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -51,3 +49,7 @@ jobs:
         build_dir: build
       env:
         GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
+        
+    - name: End2End Cypress run
+      uses: cypress-io/github-action@v2
+      
