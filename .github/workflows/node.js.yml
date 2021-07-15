@@ -24,7 +24,7 @@ jobs:
       id: load-test
       uses: kenju/github-actions-artillery@master
       with:
-        filepath: /src/__tests__/load/load-test.yml
+        filepath: ./src/__tests__/load/load-test.yml
           
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
