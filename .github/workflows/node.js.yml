@@ -53,3 +53,9 @@ jobs:
     - name: End2End Cypress run
       uses: cypress-io/github-action@v2
       
+    - name: Load Test action step
+      id: load-test
+      uses: kenju/github-actions-artillery@master
+      with:
+        filepath: load-test.yml
+      
