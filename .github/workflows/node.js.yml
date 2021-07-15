@@ -20,6 +20,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       
+    - name: Load Test action step
+      id: load-test
+      uses: kenju/github-actions-artillery@master
+      with:
+        filepath: load-test.yml
+      
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
