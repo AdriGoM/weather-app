@@ -19,9 +19,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      
+
     - name: Load Test action step
-      id: load-test
+      id: load-test-try
       uses: kenju/github-actions-artillery@master
       with:
         filepath: load-test.yml
