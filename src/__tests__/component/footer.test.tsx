@@ -22,16 +22,6 @@ describe('Footer component should render message', () => {
   });
 });
 
-describe('Footer component should render message', () => {
-  var result;
-
-  result = screen.getByText('Powered by')
-
-  test('Footer should render message', () => {
-    expect(result).toBeTruthy()
-  });
-});
-
 describe('Footer component should render image', () => {
   var result;
 
