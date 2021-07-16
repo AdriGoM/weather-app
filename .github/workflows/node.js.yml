@@ -19,12 +19,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    
-    - name: Load Test action step
-      id: load-test
-      uses: kenju/github-actions-artillery@master
-      with:
-        filepath: ./src/__tests__/load/load-test.yml
           
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -34,6 +28,7 @@ jobs:
     - name: Install dependencies
       run: npm install     
       
+      #Get from githubs secrets 
     - name: Create env file 
       run: |
         touch .env
@@ -57,6 +52,16 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
         
     - name: End2End Cypress run
-      uses: cypress-io/github-action@v2      
+      uses: cypress-io/github-action@v2 
+      
+      #If e2e fails rollback to previous version
+      
+    - name: Load Test action step
+      id: load-test
+      uses: kenju/github-actions-artillery@master
+      with:
+        filepath: ./src/__tests__/load/load-test.yml
+      
+     
     
       
