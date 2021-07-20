@@ -4,7 +4,7 @@ export const toCelsius = (source) => {
     if (typeof source !== "number")
         return "Invalid type of data!"    
 
-    return Math.trunc(source - 293.15);
+    return Math.trunc(source - 273.15);
 }
 
 export const toKilometersHour = (source) => {
