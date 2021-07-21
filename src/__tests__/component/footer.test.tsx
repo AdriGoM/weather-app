@@ -25,7 +25,7 @@ describe('Footer component should render message', () => {
 describe('Footer component should render image', () => {
   var result;
 
-  result = screen.getByAltText('openWeather-icon')
+  result = screen.getByAltText('openWeather-ico')
 
   test('Footer should render image', () => {
     expect(result).toBeTruthy()
